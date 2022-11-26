@@ -13,5 +13,8 @@
         <!-- Hibernate Model To Data Definition Language       -->
         <!-- Czy chcesz, aby klasa Javova wygenerowała Ci automatycznie tabele w bazie danych?       -->
          <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--Definicja modeli-->
+        <mapping class="pl.sda.hibernate.demo.Student"/>
     </session-factory>
 </hibernate-configuration>
