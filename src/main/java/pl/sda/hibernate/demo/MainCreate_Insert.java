@@ -50,7 +50,7 @@ public class MainCreate_Insert {
             transaction.commit();
         } catch (Exception ioe) {
             // jeśli złapiemy błąd, to wywoła się catch
-
+            System.err.println("Błąd bazy: " + ioe);
         }
     }
 }
