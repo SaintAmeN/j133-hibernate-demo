@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * @project j133-hibernate-demo
  * @created 26.11.2022
  */
-public class Main {
+public class MainInsert {
     public static void main(String[] args) {
         // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()){
@@ -31,6 +31,7 @@ public class Main {
                     .imie("Paweł")
                     .build();
 
+            // SQL: INSERT INTO 'student' values (...)
             // zapisujemy studenta
             session.persist(student);
 
