@@ -10,11 +10,16 @@ import java.time.LocalDate;
  * @project j133-hibernate-demo
  * @created 26.11.2022
  */
-public class MainInsert {
+public class MainCreate_Insert {
     public static void main(String[] args) {
         // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
+
+            // CREATE
+            // READ
+            // UPDATE
+            // DELETE
 
             // Tworzymy studenta
 //            Student student = new Student();
@@ -33,6 +38,12 @@ public class MainInsert {
 
             // SQL: INSERT INTO 'student' values (...)
             // zapisujemy studenta
+            // Merge:
+            //  - służy do aktualizacji,
+            //  - wymaga podania id, co jest kryterium aktualizacji (aktualizujemy obiekt o podanym id)
+            // Persist:
+            //  - służy do wstawiania NOWYCH rekordów do bazy,
+            //  - przeważnie nie podaje się ID ponieważ jest generowane
             session.persist(student);
 
             // zatwierdzamy transakcję

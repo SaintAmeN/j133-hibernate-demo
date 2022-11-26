@@ -10,7 +10,7 @@ import java.util.List;
  * @project j133-hibernate-demo
  * @created 26.11.2022
  */
-public class MainSelectList {
+public class MainRead_SelectList {
     public static void main(String[] args) {
         // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
