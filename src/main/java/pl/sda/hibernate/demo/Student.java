@@ -1,6 +1,8 @@
 package pl.sda.hibernate.demo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,9 +20,16 @@ import java.time.LocalDate;
  *  - pusty konstruktor
  */
 
+// Wzorzec projektowy builder:
+//    Kiedy używać:
+//      - kiedy chcemy mieć mieć większą kontrolę nad tworzeniem obiektów - mamy na myśli ilość i kolejność parametrów
+//      - kiedy chcemy zredukować ilość konstruktorów (konstruktory o różnych kombinacjach parametrów)
+
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Student {
     @Id // PRIMARY KEY
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT
@@ -34,4 +43,24 @@ public class Student {
 
 //    private int wiek;                                                       // `wiek`                   INT NOT NULL,
 //    private Integer wiek;                                                   // `wiek`                   INT,
+//
+//    Zamiast pisać konstruktory niżej, robimy builder
+//    public Student(String imie, LocalDate dataUrodzenia, String kierunekNauczania, String indeks) {
+//        this.imie = imie;
+//        this.dataUrodzenia = dataUrodzenia;
+//        this.kierunekNauczania = kierunekNauczania;
+//        this.indeks = indeks;
+//    }
+//
+//    public Student(String imie, LocalDate dataUrodzenia, String indeks) {
+//        this.imie = imie;
+//        this.dataUrodzenia = dataUrodzenia;
+//        this.indeks = indeks;
+//    }
+//
+//    public Student(String imie, LocalDate dataUrodzenia, String kierunekNauczania) {
+//        this.imie = imie;
+//        this.dataUrodzenia = dataUrodzenia;
+//        this.indeks = kierunekNauczania;
+//    }
 }
